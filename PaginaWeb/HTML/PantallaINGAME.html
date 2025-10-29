@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batalla de Reyes</title>
+  <link rel="stylesheet" href="../CSS/PantallaINGAME.css" />
+</head>
+<body>
+  <div class="game-board">
+    <!-- Indicadores laterales -->
+    <div class="turnos left">FINAL 15 TURNOS</div>
+    <div class="turnos right">SE TERMINA AL FINAL 15</div>
+
+   <!-- Jugador 2 (arriba) -->
+<div class="player player2">
+  <div class="label rojo">Jugador 2</div>
+  <div class="king-slot rey-der"></div>
+  <div class="hand hand-top">
+    <img src="cartas/2H.png" class="card" alt="Carta" />
+    <img src="cartas/3S.png" class="card" alt="Carta" />
+    <img src="cartas/7D.png" class="card" alt="Carta" />
+    <img src="cartas/5C.png" class="card" alt="Carta" />
+    <img src="cartas/9H.png" class="card" alt="Carta" />
+    <img src="cartas/6S.png" class="card" alt="Carta" />
+    <img src="cartas/4D.png" class="card" alt="Carta" />
+    <img src="cartas/8C.png" class="card" alt="Carta" />
+    <img src="cartas/10H.png" class="card" alt="Carta" />
+    <img src="cartas/AS.png" class="card" alt="Carta" />
+  </div>
+  <div class="deck deck-left"></div>
+</div>
+
+    <!-- Campo central -->
+    <div class="campo">
+      <div class="slot jugador1-slot"></div>
+      <div class="slot jugador2-slot"></div>
+    </div>
+
+    <!-- Jugador 1 (abajo) -->
+<div class="player player1">
+  <div class="label azul">Jugador 1</div>
+  <div class="king-slot rey-izq"></div>
+  <div class="hand hand-bottom">
+    <img src="cartas/7H.png" class="card" alt="Carta" />
+    <img src="cartas/3C.png" class="card" alt="Carta" />
+    <img src="cartas/2S.png" class="card" alt="Carta" />
+    <img src="cartas/5D.png" class="card" alt="Carta" />
+    <img src="cartas/9C.png" class="card" alt="Carta" />
+    <img src="cartas/6H.png" class="card" alt="Carta" />
+    <img src="cartas/4S.png" class="card" alt="Carta" />
+    <img src="cartas/8D.png" class="card" alt="Carta" />
+    <img src="cartas/10C.png" class="card" alt="Carta" />
+    <img src="cartas/AD.png" class="card" alt="Carta" />
+  </div>
+  <div class="deck deck-right"></div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
