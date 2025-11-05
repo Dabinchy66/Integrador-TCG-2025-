@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/PaginaWeb/IMG/FondoMenuPrincipal.jpeg') no-repeat center center/cover;
+  font-family: 'Uncial Antiqua', serif;
+  color: #000;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 70px;
+  margin-top: 150px;
+  color: #000;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.6);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 200px;
+}
+
+.menu button {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f5e1b7;
+  border: 2px solid #f5e1b7;
+  font-size: 24px;
+  font-family: 'Uncial Antiqua', serif;
+  padding: 10px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu button:hover {
+  background-color: #f5e1b7;
+  color: black;
+  transform: scale(1.05);
+}
