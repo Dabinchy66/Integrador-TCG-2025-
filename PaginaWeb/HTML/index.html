@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crownfall - TCG Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Panel Izquierdo: Información del juego -->
+        <div class="left-panel">
+            <div class="info-box">
+                <h3>RONDA</h3>
+                <p style="text-align: center; font-size: 24px; font-weight: bold;" id="round-number">1</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>TURNOS</h3>
+                <p>Jugador: <span id="player-turns">15</span></p>
+                <p>IA: <span id="ai-turns">15</span></p>
+            </div>
+
+            <div class="info-box">
+                <h3>PUNTOS EJÉRCITO</h3>
+                <p>Jugador: <span id="player-army">0</span></p>
+                <p>IA: <span id="ai-army">0</span></p>
+            </div>
+
+            <div id="turn-indicator" class="turn-indicator">
+                TURNO JUGADOR
+            </div>
+
+            <div class="info-box">
+                <h3>VICTORIAS</h3>
+                <p>Jugador: <span id="player-wins">0</span></p>
+                <p>IA: <span id="ai-wins">0</span></p>
+            </div>
+        </div>
+
+        <!-- Panel Central: Campo de batalla -->
+        <div class="center-panel">
+            <!-- Reyes de la IA -->
+            <div class="kings-row">
+                <div class="king-card active" id="ai-king-1">
+                    <div class="king-name">Rey Arquero</div>
+                    <div class="king-ability">Ranged sin x2</div>
+                </div>
+                <div class="king-card inactive" id="ai-king-2">
+                    <div class="king-name">Rey Cruzado</div>
+                    <div class="king-ability">Cavalry +2 PD</div>
+                </div>
+            </div>
+
+            <!-- Campo de Batalla -->
+            <div class="battlefield">
+                <div class="battle-zone ai" id="ai-battlefield"></div>
+                <div class="battle-zone" id="player-battlefield"></div>
+            </div>
+
+            <!-- Reyes del Jugador -->
+            <div class="kings-row">
+                <div class="king-card active" id="player-king-1">
+                    <div class="king-name">Balduino IV</div>
+                    <div class="king-ability">CaC sin x2</div>
+                </div>
+                <div class="king-card inactive" id="player-king-2">
+                    <div class="king-name">Verethagna</div>
+                    <div class="king-ability">CaC +2 PD</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Derecho: Mazos y acciones -->
+        <div class="right-panel">
+            <div class="deck-container">
+                <h3 style="margin-bottom: 10px;">MAZO IA</h3>
+                <div class="deck">
+                    <span class="deck-count" id="ai-deck-count">28</span>
+                    🃏
+                </div>
+            </div>
+
+            <div class="deck-container">
+                <h3 style="margin-bottom: 10px;">TU MAZO</h3>
+                <div class="deck">
+                    <span class="deck-count" id="player-deck-count">28</span>
+                    🃏
+                </div>
+            </div>
+
+            <div class="action-buttons" style="flex-direction: column;">
+                <button class="btn btn-secondary" id="end-turn-btn">Pasar Turno</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mano del Jugador -->
+    <div class="hand-container" id="player-hand"></div>
+
+    <!-- Mensaje de estado -->
+    <div class="status-message" id="status-message"></div>
+
+    <!-- Overlay de mensajes -->
+    <div class="message-overlay" id="message-overlay">
+        <div class="message-content" id="message-content"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
