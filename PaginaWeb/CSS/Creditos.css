@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('/PaginaWeb/IMG/Imgcreditos.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Uncial Antiqua', cursive;
+  color: #2b1d0e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Contenedor de los créditos */
+.contenedor {
+  background-color: rgba(245, 235, 220, 0.8);
+  border: 4px solid #3a2b15;
+  border-radius: 10px;
+  padding: 40px 60px;
+  max-width: 600px;
+  box-shadow: none; /* Sin brillo ni sombra moderna */
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 25px;
+  color: #3a1e0b;
+  text-shadow: 1px 1px 1px #d9c4a0; /* efecto tenue, tipo pergamino */
+}
+
+p {
+  font-size: 1.8em;
+  margin: 10px 0;
+  color: #3a1e0b;
+}
+
+/* Botón de volver al menú */
+.boton-volver {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2em;
+  color: #1c1208;
+  text-decoration: none;
+  background-color: rgba(230, 210, 180, 0.9);
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 2px solid #1c1208;
+  font-family: 'Uncial Antiqua', cursive;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.boton-volver:hover {
+  background-color: rgba(200, 180, 150, 0.9);
+}

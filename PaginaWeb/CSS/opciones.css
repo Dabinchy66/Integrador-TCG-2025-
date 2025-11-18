@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', serif;
+    background: url('/PaginaWeb/IMG/FondoMenuPrincipal.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    transition: filter 0.3s ease;
+    height: 100vh;
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.options-container {
+    background: rgba(0, 0, 0, 0.65);
+    color: #f0e6d2;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    text-align: center;
+    width: 420px;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: 30px;
+    color: #ffd700;
+    margin-bottom: 25px;
+}
+
+.option {
+    margin: 25px 0;
+}
+
+button {
+    background-color: #d4af37;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0e68c;
+}
+
+input[type=range] {
+    width: 80%;
+    cursor: pointer;
+}
+
+/* Botón de volver al menú */
+.boton-volver {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2em;
+  color: #1c1208;
+  text-decoration: none;
+  background-color: rgba(230, 210, 180, 0.9);
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 2px solid #1c1208;
+  font-family: 'Uncial Antiqua', cursive;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
