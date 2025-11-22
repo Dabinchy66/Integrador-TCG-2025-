@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', serif;
-    background: url('/PaginaWeb/IMG/FondoMenuPrincipal.jpeg') no-repeat center center fixed;
+    background: url('../IMG/FondoMenuPrincipal.jpeg') no-repeat center center fixed;
     background-size: cover;
     transition: filter 0.3s ease;
     height: 100vh;

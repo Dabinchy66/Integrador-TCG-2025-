@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('/PaginaWeb/IMG/FondoMenuPrincipal.jpeg') no-repeat center center/cover;
+  background: url('../IMG/FondoMenuPrincipal.jpeg') no-repeat center center/cover;
   font-family: 'Uncial Antiqua', serif;
   color: #000;
   text-align: center;

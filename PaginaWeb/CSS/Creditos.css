@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url('/PaginaWeb/IMG/Imgcreditos.png') no-repeat center center fixed;
+  background: url('../IMG/FondoMenuPrincipal.jpeg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Uncial Antiqua', cursive;
   color: #2b1d0e;
