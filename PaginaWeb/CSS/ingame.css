@@ -503,3 +503,34 @@ body {
     10%, 90% { opacity: 1; }
 }
 
+.card {
+    width: 100px;
+    height: 180px;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 3px solid #000;
+}
+
+.card-full-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.4); /* Zoom ligero para eliminar bordes blancos */
+}
+.card.card-fill-image-zoom .card-full-image {
+    transform: scale(4.06);
+}
+
+.card.unit-cac,
+.card.unit-cavalry,
+.card.unit-ranged,
+.card.silver,
+.card.order,
+.card.structure,
+.card.special {
+    background: none !important;
+}

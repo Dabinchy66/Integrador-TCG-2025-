@@ -150,7 +150,7 @@ function initGame() {
 }
 
 function dealInitialHands() {
-    gameState.playerHand = [];
+    gameState.player = [];
     gameState.aiHand = [];
     
     // Jugador: exactamente 3 platas + 7 cartas aleatorias NO PLATA
@@ -192,6 +192,44 @@ function dealInitialHands() {
 }
 
 // ===== RENDERIZADO DE CARTAS =====
+
+function getCardImagePath(card) {
+    const base = "../../Assets/Cartas/Cartas_Vectorizadas/";
+
+    if (card.type === "silver") {
+        return `${base}Plata/plata.svg`;
+    }
+    if (card.type === "order") {
+        return `${base}Ordenes/${normalize(card.name)}.svg`;
+    }
+    if (card.type === "structure") {
+        return `${base}Estructuras/${normalize(card.name)}.svg`;
+    }
+    if (card.type === "special") {
+        return `${base}Especiales/${normalize(card.name)}.svg`;
+    }
+    if (card.type === "unit") {
+        let folder = "";
+        if (card.unitType === "cac") folder = "CaC";
+        if (card.unitType === "cavalry") folder = "Cavalry";
+        if (card.unitType === "ranged") folder = "Ranged";
+        return `${base}${folder}/${normalize(card.name)}.svg`;
+    }
+    return "";
+}
+
+function normalize(name) {
+    return name
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/á/g, "a")
+        .replace(/é/g, "e")
+        .replace(/í/g, "i")
+        .replace(/ó/g, "o")
+        .replace(/ú/g, "u")
+        .replace(/ñ/g, "n");
+}
+
 function renderCard(card, inHand = false, owner = 'player') {
     const cardEl = document.createElement('div');
     cardEl.className = `card ${card.type === 'unit' ? `unit-${card.unitType}` : card.type}`;
@@ -214,58 +252,14 @@ function renderCard(card, inHand = false, owner = 'player') {
         cardEl.onclick = () => selectTarget(card);
     }
     
-    let content = `<div class="card-header">${card.name}</div>`;
-    
-    if (card.type === 'unit') {
-        const armyPoints = card.currentHp;
-        content += `
-            <div class="army-points">${armyPoints}</div>
-            <div class="card-stats">
-                <div class="stat">
-                    <div class="stat-label">PV</div>
-                    <div>${card.currentHp}</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-label">PD</div>
-                    <div>${card.damage}</div>
-                </div>
-            </div>
-        `;
-        if (card.ability) {
-            const abilityStatus = card.abilityActive ? '✓' : '';
-            content += `<div class="card-ability">${abilityStatus} ${card.ability}</div>`;
-        }
-        
-        // Mostrar si está en torre o cabaña
-        if (card.inStructure) {
-            content += `<div class="card-ability" style="background: rgba(255,215,0,0.3);">En ${card.inStructure}</div>`;
-        }
-    } else if (card.type === 'order') {
-        content += `
-            <div class="card-stats">
-                <div class="stat">
-                    <div class="stat-label">Daño</div>
-                    <div>${card.damage}</div>
-                </div>
-            </div>
-        `;
-    } else if (card.type === 'structure') {
-        content += `
-            <div class="card-stats">
-                <div class="stat">
-                    <div class="stat-label">PV</div>
-                    <div>${card.currentHp}</div>
-                </div>
-            </div>
-        `;
-        
-        // Mostrar unidades en la estructura
-        if (card.unitsInside && card.unitsInside.length > 0) {
-            content += `<div class="card-ability" style="background: rgba(0,255,0,0.2);">${card.unitsInside.length} unidad(es) dentro</div>`;
-        }
-    }
-    
-    cardEl.innerHTML = content;
+    const imgPath = getCardImagePath(card);
+
+let content = `
+    <img class="card-full-image" src="${imgPath}" alt="${card.name}">
+    <div class="army-points">${card.currentHp !== undefined ? card.currentHp : ""}</div>
+`;
+
+cardEl.innerHTML = content;
     return cardEl;
 }
 
@@ -1074,15 +1068,24 @@ function updateUI() {
         playerBattlefieldEl.style.boxShadow = 'none';
     }
     
-    const aiHandContainer = document.getElementById('ai-hand');
-    aiHandContainer.innerHTML = '';
-    gameState.aiHand.forEach((card, index) => {
-        const cardBack = document.createElement('div');
-        cardBack.className = 'card-back';
-        cardBack.innerHTML = '🃏';
-        cardBack.title = `Carta ${index + 1} de la IA`;
-        aiHandContainer.appendChild(cardBack);
-    });
+   const aiHandContainer = document.getElementById('ai-hand');
+aiHandContainer.innerHTML = '';
+gameState.aiHand.forEach((card, index) => {
+    const cardBack = document.createElement('div');
+    cardBack.className = 'card-back';
+    
+    // Crear elemento img en lugar de emoji
+    const cardBackImg = document.createElement('img');
+    cardBackImg.src = '../../Assets/Cartas/Cartas_Vectorizadas/Carta parte trasera.svg';
+    cardBackImg.alt = 'Dorso de carta';
+    cardBackImg.style.width = '100%';
+    cardBackImg.style.height = '100%';
+    cardBackImg.style.objectFit = 'cover';
+    
+    cardBack.appendChild(cardBackImg);
+    cardBack.title = `Carta ${index + 1} de la IA`;
+    aiHandContainer.appendChild(cardBack);
+});
     
     const handContainer = document.getElementById('player-hand');
     handContainer.innerHTML = '';
